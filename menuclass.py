@@ -47,8 +47,7 @@ class Menu():
 
     def execute(self):
         self.highlight()
-        Flag = True
-        while Flag:
+        while True:
             [u, d, s] = UI.UserInput()
             print([u,d,s])
             if u:
@@ -72,3 +71,29 @@ class menuItem():
     def execute(self):
         self.function()
 
+
+
+def getnumber():
+    n = 0
+    #clear display
+    # vis n
+    self.LCD.fill(self.LCD.WHITE)
+    self.LCD.text(text(n), 30, 30, self.LCD.BLACK)
+    self.LCD.show()
+    while True:
+        [u, d, s] = UI.UserInput()
+        print([u, d, s])
+        if u:
+            n = n + 1
+            #vis n
+            self.LCD.fill(self.LCD.WHITE)
+            self.LCD.text(text(n), 30, 30, self.LCD.BLACK)
+            self.LCD.show()
+        if d:
+            n = n - 1
+            #vis n
+            self.LCD.fill(self.LCD.WHITE)
+            self.LCD.text(text(n), 30, 30, self.LCD.BLACK)
+            self.LCD.show()
+        if s:
+            return n
