@@ -48,7 +48,7 @@ submenu2 = Menu()
 submenu2.AddMenuItem(mp2)
 submenu2.AddMenuItem(mp2)
 submenu2.AddMenuItem(mp1)
-submenu2Item = menuItem("sub menu 2",submenu1.execute)
+submenu2Item = menuItem("gpio menu",submenu1.execute)
 
 
 
@@ -57,13 +57,3 @@ mainmenu.AddMenuItem(enteritem)
 
 mainmenu.execute()
 
-
-
-
-
-
-
-
-
-
-#RecursiveRun(UI.UserInput,

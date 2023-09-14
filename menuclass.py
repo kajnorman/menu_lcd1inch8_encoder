@@ -2,6 +2,10 @@ from LCD_1_8_file import LCD_1inch8
 
 import UI
 
+LCD = LCD_1inch8()
+LCD.fill(LCD.WHITE)
+LCD.show()
+
 
 class Menu():
     def __init__(self):
@@ -9,25 +13,21 @@ class Menu():
         self.menuItemList=[]
         self.back_item = menuItem('Back',None)
         self.menuItemList.append(self.back_item)
-        self.LCD = LCD_1inch8()
-        # color BRG
-        self.LCD.fill(self.LCD.WHITE)
-        self.LCD.show()
 
 
 
     def show(self):
         y=5
         for obj in self.menuItemList:
-            self.LCD.text(obj.ItemLine, 2, y, self.LCD.BLACK)
+            LCD.text(obj.ItemLine, 2, y, LCD.BLACK)
 #            print(obj.ItemLine)
             y = y + 20
-        self.LCD.show()
+        LCD.show()
     def highlight(self):
-        self.LCD.fill(self.LCD.WHITE)
+        LCD.fill(LCD.WHITE)
         self.show()
-        self.LCD.rect(1, 3+(self.selected_item_index)*20, 150, 20, 0X0000)
-        self.LCD.show()
+        LCD.rect(1, 3+(self.selected_item_index)*20, 150, 20, 0X0000)
+        LCD.show()
 
     def AddMenuItem(self, MI):
         self.menuItemList.append(MI)
@@ -77,23 +77,24 @@ def getnumber():
     n = 0
     #clear display
     # vis n
-    self.LCD.fill(self.LCD.WHITE)
-    self.LCD.text(text(n), 30, 30, self.LCD.BLACK)
-    self.LCD.show()
+    LCD.fill(LCD.WHITE)
+#    LCD.text(info, 30, 30, LCD.BLACK)  hjælpetext ønsket.. fex  "indtast skonummer"
+    LCD.text(str(n), 60, 60, LCD.BLACK)
+    LCD.show()
     while True:
         [u, d, s] = UI.UserInput()
         print([u, d, s])
         if u:
             n = n + 1
             #vis n
-            self.LCD.fill(self.LCD.WHITE)
-            self.LCD.text(text(n), 30, 30, self.LCD.BLACK)
-            self.LCD.show()
+            LCD.fill(LCD.WHITE)
+            LCD.text(str(n), 60, 60, LCD.BLACK)
+            LCD.show()
         if d:
             n = n - 1
             #vis n
-            self.LCD.fill(self.LCD.WHITE)
-            self.LCD.text(text(n), 30, 30, self.LCD.BLACK)
-            self.LCD.show()
+            LCD.fill(LCD.WHITE)
+            LCD.text(str(n), 60, 60, LCD.BLACK)
+            LCD.show()
         if s:
             return n
