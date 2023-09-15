@@ -2,7 +2,7 @@ import time
 from machine import Pin, PWM
 from menuclass import Menu, menuItem ,getnumber
 
-import UI
+
 
 
 from LCD_1_8_file import LCD_1inch8
@@ -24,6 +24,17 @@ def f2():
     print("Hej fra f2")
     time.sleep(0.5)
 
+def setPinHi():
+    n = getnumber()
+    p = Pin(n,Pin.OUT)
+    p(1)
+
+def setPinLo():
+    n = getnumber()
+    p = Pin(n,Pin.OUT)
+    p(0)
+
+
 
 mp1 = menuItem("mp1-object",f1)
 mp2 = menuItem("mp2-object",f2)
@@ -41,19 +52,21 @@ submenu1Item = menuItem("sub menu 1",submenu1.execute)
 mainmenu.AddMenuItem(submenu1Item)
 
 
-enteritem = menuItem("enter digit",getnumber)
+enteritem = menuItem("test of enter digit",getnumber)
+setpinhiItem = menuItem('set a gp pin hi',setPinHi)
+setpinloItem = menuItem('set a gp pin low',setPinLo)
 
 
-submenu2 = Menu()
-submenu2.AddMenuItem(mp2)
-submenu2.AddMenuItem(mp2)
-submenu2.AddMenuItem(mp1)
-submenu2Item = menuItem("gpio menu",submenu1.execute)
+submenu_gpio = Menu()
+submenu_gpio.AddMenuItem(enteritem)
+submenu_gpio.AddMenuItem(setpinhiItem)
+submenu_gpio.AddMenuItem(setpinloItem)
+submenu_gpioItem = menuItem("gpio menu",submenu_gpio.execute)
+mainmenu.AddMenuItem(submenu_gpioItem)
 
-
-
-mainmenu.AddMenuItem(submenu2Item)
-mainmenu.AddMenuItem(enteritem)
+print ('mainmenu starter')
 
 mainmenu.execute()
 
+
+print ('mainmenu slutter')

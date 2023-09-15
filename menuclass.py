@@ -1,3 +1,5 @@
+from machine import Pin
+
 from LCD_1_8_file import LCD_1inch8
 
 import UI
@@ -49,7 +51,7 @@ class Menu():
         self.highlight()
         while True:
             [u, d, s] = UI.UserInput()
-            print([u,d,s])
+            #print([u,d,s])
             if u:
                 self.up()
             if d:
@@ -83,7 +85,7 @@ def getnumber():
     LCD.show()
     while True:
         [u, d, s] = UI.UserInput()
-        print([u, d, s])
+        #print([u, d, s])
         if u:
             n = n + 1
             #vis n
@@ -97,4 +99,7 @@ def getnumber():
             LCD.text(str(n), 60, 60, LCD.BLACK)
             LCD.show()
         if s:
+            print(n)
             return n
+
+
