@@ -79,25 +79,19 @@ def getnumber():
     n = 0
     #clear display
     # vis n
-    LCD.fill(LCD.WHITE)
-#    LCD.text(info, 30, 30, LCD.BLACK)  hjælpetext ønsket.. fex  "indtast skonummer"
-    LCD.text(str(n), 60, 60, LCD.BLACK)
-    LCD.show()
+
     while True:
+        LCD.fill(LCD.WHITE)
+        LCD.text(str(n), 60, 60, LCD.BLACK)
+        LCD.show()
         [u, d, s] = UI.UserInput()
         #print([u, d, s])
         if u:
             n = n + 1
             #vis n
-            LCD.fill(LCD.WHITE)
-            LCD.text(str(n), 60, 60, LCD.BLACK)
-            LCD.show()
         if d:
             n = n - 1
             #vis n
-            LCD.fill(LCD.WHITE)
-            LCD.text(str(n), 60, 60, LCD.BLACK)
-            LCD.show()
         if s:
             print(n)
             return n
