@@ -32,7 +32,7 @@ class Menu():
         LCD.show()
 
     def AddMenuItem(self, MI):
-        self.menuItemList.append(MI)
+        self.menuItemList.insert(-1,MI)
 
     def up(self):
         self.selected_item_index = (self.selected_item_index + 1)%len(self.menuItemList)
@@ -79,21 +79,38 @@ def getnumber():
     n = 0
     #clear display
     # vis n
-
+    LCD.fill(LCD.WHITE)
+#    LCD.text(info, 30, 30, LCD.BLACK)  hjælpetext ønsket.. fex  "indtast skonummer"
+    LCD.text(str(n), 60, 60, LCD.BLACK)
+    LCD.show()
     while True:
-        LCD.fill(LCD.WHITE)
-        LCD.text(str(n), 60, 60, LCD.BLACK)
-        LCD.show()
         [u, d, s] = UI.UserInput()
         #print([u, d, s])
         if u:
             n = n + 1
             #vis n
+            LCD.fill(LCD.WHITE)
+            LCD.text(str(n), 60, 60, LCD.BLACK)
+            LCD.show()
         if d:
             n = n - 1
             #vis n
+            LCD.fill(LCD.WHITE)
+            LCD.text(str(n), 60, 60, LCD.BLACK)
+            LCD.show()
         if s:
             print(n)
             return n
 
+
+def writestr(str):
+    # clear display
+    LCD.fill(LCD.WHITE)
+    LCD.text(str, 10, 60, LCD.BLACK)
+    LCD.show()
+    while True:
+        [u, d, s] = UI.UserInput()
+        if s:
+            print(str)
+            return
 
