@@ -2,6 +2,8 @@ from machine import Pin, SPI
 import framebuf
 
 
+#new
+
 BL = 13
 DC = 8
 RST = 12
